@@ -6,28 +6,26 @@ for(let i = 0; i < fiveNumRand.length ; i++){
     let numberEl = document.createElement("p")
     divEl.append(numberEl);
     numberEl.innerHTML = fiveNumRand[i];
-    const removeNumber = setTimeout(removeNumber , 3000 , numberEl);
-    const promt = setTimeout(myPromt , 4000 , fiveNumRand , count)
+    const simon = setTimeout(simonSays , 3000 , numberEl , fiveNumRand );
 
 
 }
 
-function myPromt(array , countF){
+
+function simonSays(element , array ){
+    element = element.remove();
+    let count;
     for(let i = 0; i < array.length ; i++){
         let insertNumber = Number.parseInt(prompt("Inserisci i numeri che hai visto") , 10);
-        if(array === insertNumber){
-            countF++;
-            return console.log(insertNumber , countF)
-}
+        if(array.includes(insertNumber)){
+            count++;
+            return console.log(insertNumber , count)
+        }
         else {
-        return  console.log("notFound")
+            return console.log("notFound")
+        }
     }
-}
-}
 
-
-function removeNumber( firstNumbers){
-    firstNumbers = firstNumbers.remove();
 }
 
 
