@@ -1,23 +1,30 @@
 const divEl = document.querySelector("div")
 let fiveNumRand = getRandomArray(5 , 1 , 100);
 
-for(let i = 0; i < fiveNumRand.length ; i++){
-    let count;
-    let numberEl = document.createElement("p")
+for(let i = 0; i < fiveNumRand.length ; i++){  
+    let numberEl = document.createElement("p");
     divEl.append(numberEl);
     numberEl.innerHTML = fiveNumRand[i];
     const simon = setTimeout(simonSays , 3000 , numberEl );
-    const prompt = setTimeout(promt , 4000 , fiveNumRand)
+    let promptUser = setTimeout(promtUser , 3100 , fiveNumRand );
+    let printValue = setTimeout(appendValue , 5000 , promptUser ,divEl);
 }
 
-function promt(array ){
+function appendValue(value , element){
+    let newEl = document.createElement("div");
+    element.appendChild(newEl);
+    newEl.innerHTML = value;
+}
+
+
+function promtUser(array){
     for(let i = 0; i < array.length ; i++){
         let insertNumber = Number.parseInt(prompt("Inserisci i numeri che hai visto") , 10);
         if(array.includes(insertNumber)){
-            return console.log(insertNumber);
+            return console.log("Il numero digitato" , insertNumber , "è corretto");
         }
         else {
-            return console.log("notFound")
+            return console.log("Il numero inserito non è presente ")
         }
     }
 }
