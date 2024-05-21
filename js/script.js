@@ -6,26 +6,24 @@ for(let i = 0; i < fiveNumRand.length ; i++){
     let numberEl = document.createElement("p")
     divEl.append(numberEl);
     numberEl.innerHTML = fiveNumRand[i];
-    const simon = setTimeout(simonSays , 3000 , numberEl , fiveNumRand );
-
-
+    const simon = setTimeout(simonSays , 3000 , numberEl );
+    const prompt = setTimeout(promt , 4000 , fiveNumRand)
 }
 
-
-function simonSays(element , array ){
-    element = element.remove();
-    let count;
+function promt(array ){
     for(let i = 0; i < array.length ; i++){
         let insertNumber = Number.parseInt(prompt("Inserisci i numeri che hai visto") , 10);
         if(array.includes(insertNumber)){
-            count++;
-            return console.log(insertNumber , count)
+            return console.log(insertNumber);
         }
         else {
             return console.log("notFound")
         }
     }
+}
 
+function simonSays(element){
+    element = element.remove();
 }
 
 
@@ -45,5 +43,3 @@ function getRandomArray(arraylength, min, max) {
     }
     return array;
 }
-
-
