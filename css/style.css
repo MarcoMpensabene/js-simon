@@ -1,0 +1,7 @@
+div.container{
+    display: flex;
+    width: 500px;
+    justify-content: space-around;
+    background-color: aqua;
+    margin: 0 auto;
+}
